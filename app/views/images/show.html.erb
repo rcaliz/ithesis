@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @image.title %>
+</p>
+
+<div class="image">
+  <%= image_tag @image.image_url(:thumb).to_s, :class => "style_image" %>
+</div>
+
+<p>
+  <b>Description:</b>
+  <%= @image.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_image_path(@image), :class => 'btn btn-small' %> |
+<%= link_to 'Back', images_path, :class => 'btn btn-small' %>

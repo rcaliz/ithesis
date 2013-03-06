@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @audio.title %>
+</p>
+
+<audio controls="controls">  
+	<source src=<%= @audio.audio_url.to_s %> />
+</audio>  
+
+<!-- <p>
+  <b>Audio:</b>
+  <%= @audio.audio %>
+</p> -->
+
+
+<p>
+  <b>Description:</b>
+  <%= @audio.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_audio_path(@audio), :class => 'btn btn-small' %> |
+<%= link_to 'Back', audios_path, :class => 'btn btn-small' %>

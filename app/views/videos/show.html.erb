@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @video.title %>
+</p>
+
+<!-- <p>
+  <b>Video:</b>
+  <%= @video.video %>
+</p> -->
+
+<video controls width="640" height="450" poster="/uploads/video/sample.png">
+	<source src="<%= @video.video_url.to_s %>" >
+	<object width="640" height="450" type="application/x-shockwave-flash" data="player.swf">
+		<param name="movie" value="player.swf">
+		<param name="flashvars" value="controlbar=over&amp;image=/uploads/video/sample.png&amp;file=<%= @video.video_url.to_s %>">
+		<img src="/uploads/video/sample.png" width="640" height="360" alt="Sample" title="No direct video playback capabilities, so please download the video below">
+	</object>
+</video>
+
+<p>
+  <b>Description:</b>
+  <%= @video.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_video_path(@video), :class => 'btn btn-small' %> |
+<%= link_to 'Back', videos_path, :class => 'btn btn-small' %>
