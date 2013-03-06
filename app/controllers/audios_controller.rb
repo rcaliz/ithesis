@@ -1,5 +1,5 @@
 class AudiosController < ApplicationController
-  before_filter :require_login
+  # before_filter :require_login
   # GET /audios
   # GET /audios.json
   def index
