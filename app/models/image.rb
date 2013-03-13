@@ -8,7 +8,10 @@ class Image < ActiveRecord::Base
 	:message => 'must be a JPEG or PNG.'
   }
 
+<<<<<<< HEAD
   belongs_to :reunion
   
+=======
+>>>>>>> 290743db3260ec73582e93a4103180d6a57d7a36
   mount_uploader :image, ImageUploader
 end

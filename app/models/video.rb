@@ -8,7 +8,10 @@ class Video < ActiveRecord::Base
 	:message => 'must be a 3GP.'
   }
 
+<<<<<<< HEAD
   belongs_to :reunion
 
+=======
+>>>>>>> 290743db3260ec73582e93a4103180d6a57d7a36
   mount_uploader :video, VideoUploader
 end

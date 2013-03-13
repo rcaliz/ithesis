@@ -7,6 +7,7 @@ AgileIbooks::Application.routes.draw do
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
+<<<<<<< HEAD
 
   get "artefacts" => "artefacts#index"
   
@@ -38,6 +39,14 @@ AgileIbooks::Application.routes.draw do
     get "artefacts" => "artefacts#index"
   end
 
+=======
+  
+  resources :users
+  resources :sessions
+  resources :images
+  resources :videos
+  resources :audios
+>>>>>>> 290743db3260ec73582e93a4103180d6a57d7a36
 
   root :to => "users#index"
 

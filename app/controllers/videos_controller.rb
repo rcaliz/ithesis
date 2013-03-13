@@ -42,8 +42,11 @@ class VideosController < ApplicationController
   def create
     @video = Video.new(params[:video])
 
+<<<<<<< HEAD
     @video.reunion_id = session[:reunion_id]
 
+=======
+>>>>>>> 290743db3260ec73582e93a4103180d6a57d7a36
     respond_to do |format|
       if @video.save
         format.html { redirect_to @video, notice: 'Video was successfully created.' }
@@ -82,6 +85,7 @@ class VideosController < ApplicationController
       format.json { head :no_content }
     end
   end
+<<<<<<< HEAD
 
   def decouple
     @video = Video.find(params[:id])
@@ -102,4 +106,6 @@ class VideosController < ApplicationController
   end
 
 
+=======
+>>>>>>> 290743db3260ec73582e93a4103180d6a57d7a36
 end
