@@ -41,7 +41,10 @@ class AudiosController < ApplicationController
   # POST /audios
   # POST /audios.json
   def create
+    
     @audio = Audio.new(params[:audio])
+    
+    @audio.reunion_id = session[:reunion_id]
 
     respond_to do |format|
       if @audio.save
@@ -81,4 +84,23 @@ class AudiosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def decouple
+    @audio = Audio.find(params[:id])
+    @audio.reunion_id = nil
+    respond_to do |format|
+      if @audio.save
+        format.html { redirect_to artefacts_path, notice: 'Video was successfully decoupled.' }
+      else
+        format.html { render action: "index" }
+        format.json { render json: @audio.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def download
+    @audio = Audio.find(params[:id])
+    send_file Rails.root.join("public"+@audio.audio_url)
+  end
+
 end

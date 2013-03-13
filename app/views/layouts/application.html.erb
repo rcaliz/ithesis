@@ -23,6 +23,11 @@
 				<li>
 				<%= link_to "About us", root_path %>
 				</li>
+				<% if current_user.rol == 2 %>
+					<li>
+						<%= link_to "Reunions", reunions_path %>
+					</li>
+				<% end %>
 				<li>
 				<%= link_to "Images", images_path %>
 				</li>

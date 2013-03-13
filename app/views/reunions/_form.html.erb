@@ -1,0 +1,33 @@
+<%= form_for(@reunion) do |f| %>
+  <% if @reunion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reunion.errors.count, "error") %> prohibited this reunion from being saved:</h2>
+
+      <ul>
+      <% @reunion.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :subject %>
+    <%= f.text_field :subject %>
+  </div>
+  <div class="field">
+    <%= f.label :duration %>
+    <%= f.time_select :duration %>
+  </div>
+  <div class="field">
+    <%= f.label :place %>
+    <%= f.text_field :place %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

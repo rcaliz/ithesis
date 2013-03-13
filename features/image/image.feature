@@ -5,7 +5,7 @@ Feature: Upload Image
 		And I submit the image form
 		Then I should see a success message to the image
 
-	Scenario: Upload process
+	Scenario: Upload process whit error
 		Given I want again to upload an image
 		When the image format is not_jpg_or png
 		And I submit again the image form

@@ -43,6 +43,8 @@ class ImagesController < ApplicationController
   def create
     @image = Image.new(params[:image])
 
+    @image.reunion_id = session[:reunion_id]
+
     respond_to do |format|
       if @image.save
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
@@ -81,4 +83,24 @@ class ImagesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def decouple
+    @image = Image.find(params[:id])
+    @image.reunion_id = nil
+    respond_to do |format|
+      if @image.save
+        format.html { redirect_to artefacts_path, notice: 'Image was successfully decoupled.' }
+        format.json { render json: @image, status: :created, location: @image }
+      else
+        format.html { render action: "index" }
+        format.json { render json: @image.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def download
+    @image = Image.find(params[:id])
+    send_file Rails.root.join("public"+@image.image_url)
+  end
+
 end

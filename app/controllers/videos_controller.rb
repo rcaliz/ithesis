@@ -42,6 +42,8 @@ class VideosController < ApplicationController
   def create
     @video = Video.new(params[:video])
 
+    @video.reunion_id = session[:reunion_id]
+
     respond_to do |format|
       if @video.save
         format.html { redirect_to @video, notice: 'Video was successfully created.' }
@@ -80,4 +82,24 @@ class VideosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def decouple
+    @video = Video.find(params[:id])
+    @video.reunion_id = nil
+    respond_to do |format|
+      if @video.save
+        format.html { redirect_to artefacts_path, notice: 'Video was successfully decoupled.' }
+      else
+        format.html { render action: "index" }
+        format.json { render json: @video.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def download
+    @video = Video.find(params[:id])
+    send_file Rails.root.join("public"+@video.video_url)
+  end
+
+
 end

@@ -8,5 +8,7 @@ class Audio < ActiveRecord::Base
 	:message => 'must be a MP3.'
   }
 
+  belongs_to :reunion
+
   mount_uploader :audio, AudioUploader
 end
