@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Description:</b>
+  <%= @compromise.description %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @compromise.date %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @compromise.state %>
+</p>
+
+<p>
+  <b>Reunion:</b>
+  <%= @compromise.reunion_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_compromise_path(@compromise) %> |
+<%= link_to 'Back', compromises_path %>

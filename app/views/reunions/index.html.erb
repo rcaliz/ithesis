@@ -19,6 +19,7 @@
     <td><%= reunion.duration %></td>
     <td><%= reunion.place %></td>
     <td><%= link_to 'Add Artefact', artefacts_path(:reunion_id => reunion), :class => 'btn btn-small btn-success'  %></td>
+    <td><%= link_to 'Add/List Compromises', compromises_path(:reunion_id => reunion), :class => 'btn btn-small btn-success'  %></td>
     <td><%= link_to 'Show', reunion, :class => 'btn btn-small'  %></td>
     <td><%= link_to 'Edit', edit_reunion_path(reunion), :class => 'btn btn-small'  %></td>
     <td><%= link_to 'Destroy', reunion, method: :delete, :class => 'btn btn-small', data: { confirm: 'Are you sure?' } %></td>

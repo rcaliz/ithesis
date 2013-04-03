@@ -1,5 +1,8 @@
 AgileIbooks::Application.routes.draw do
 
+  resources :compromises
+
+
   resources :theses
 
   get "logout" => "sessions#destroy", :as => "logout"

@@ -1,0 +1,29 @@
+<h1>Listing compromises</h1>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Date</th>
+    <th>State</th>
+    <th>Reunion</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @compromises.each do |compromise| %>
+  <tr>
+    <td><%= compromise.description %></td>
+    <td><%= compromise.date %></td>
+    <td><%= compromise.state %></td>
+    <td><%= compromise.reunion_id %></td>
+    <td><%= link_to 'Show', compromise %></td>
+    <td><%= link_to 'Edit', edit_compromise_path(compromise) %></td>
+    <td><%= link_to 'Destroy', compromise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Compromise', new_compromise_path %>
