@@ -43,11 +43,8 @@ class ImagesController < ApplicationController
   def create
     @image = Image.new(params[:image])
 
-<<<<<<< HEAD
     @image.reunion_id = session[:reunion_id]
 
-=======
->>>>>>> 290743db3260ec73582e93a4103180d6a57d7a36
     respond_to do |format|
       if @image.save
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
@@ -86,7 +83,6 @@ class ImagesController < ApplicationController
       format.json { head :no_content }
     end
   end
-<<<<<<< HEAD
 
   def decouple
     @image = Image.find(params[:id])
@@ -108,6 +104,3 @@ class ImagesController < ApplicationController
   end
 
 end
-=======
-end
->>>>>>> 290743db3260ec73582e93a4103180d6a57d7a36

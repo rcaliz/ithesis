@@ -41,14 +41,10 @@ class AudiosController < ApplicationController
   # POST /audios
   # POST /audios.json
   def create
-<<<<<<< HEAD
     
     @audio = Audio.new(params[:audio])
     
     @audio.reunion_id = session[:reunion_id]
-=======
-    @audio = Audio.new(params[:audio])
->>>>>>> 290743db3260ec73582e93a4103180d6a57d7a36
 
     respond_to do |format|
       if @audio.save
@@ -88,7 +84,6 @@ class AudiosController < ApplicationController
       format.json { head :no_content }
     end
   end
-<<<<<<< HEAD
 
   def decouple
     @audio = Audio.find(params[:id])
@@ -108,6 +103,4 @@ class AudiosController < ApplicationController
     send_file Rails.root.join("public"+@audio.audio_url)
   end
 
-=======
->>>>>>> 290743db3260ec73582e93a4103180d6a57d7a36
 end

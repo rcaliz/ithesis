@@ -1,5 +1,5 @@
 class ReunionsController < ApplicationController
-  # before_filter :require_login
+  before_filter :require_login
   # GET /reunions
   # GET /reunions.json
   

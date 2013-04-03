@@ -4,11 +4,11 @@ class ArtefactsController < ApplicationController
   def index
     @user = current_user
     
-    @reunion = Reunion.find(session[:reunion_id])
-
-    if @reunion == nil
+    if session[:reunion_id] == nil
       @reunion = Reunion.find(params[:reunion_id])
-      session[:reunion_id] = @reunion.id  
+      session[:reunion_id] = @reunion.id
+    elsif
+      @reunion = Reunion.find(session[:reunion_id])
     end
     
     respond_to do |format|
